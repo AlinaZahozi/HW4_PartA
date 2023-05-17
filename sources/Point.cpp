@@ -39,15 +39,18 @@ namespace ariel{
         return "(" + to_string(this->x_cordinta) + ", " + to_string(this->y_cordinta) + ")";
     }
 
+    // Calculates the distance to another point
     double Point::distance(Point other){
         //need to perform
         return 0;
     }
 
+    // Prints the point
     void Point::print(){
         cout << this->toString() << endl;
     }
 
+    // Moves towards another point by a specified distance
     Point Point::moveTowards(Point src , Point dst , double dist){
         //need to perform
         return Point(0,0);

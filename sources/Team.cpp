@@ -3,14 +3,12 @@
 #include <stdio.h>
 #include "Team.hpp"
 #include "Team.hpp"
-#include "vector"
-#include <algorithm>
 #include "typeinfo"
 using namespace std;
 
 namespace ariel{
 
-    // Constructor
+    // Initializes a Team object with the given leader
     Team::Team(Character *leader):
     leader(leader){
         if (leader == nullptr) throw invalid_argument("Error: Leader is null");
@@ -18,50 +16,56 @@ namespace ariel{
         add(leader);
     }
 
-    // Copy constructor
-    Team::Team(const Team &other) : leader(other.leader){
+    // Initializes a Team object as a copy of another
+    Team::Team(const Team &other) :
+    leader(other.leader){
         int size = team.size();
         for (size_t i = 0; i < size ; i++){
             if (other.team[i] != nullptr) team[i] = other.team[i]->Copy();
         }
     }
 
-    // Copy assignment operator
-    Team &Team::operator=(const Team &other){
-        return *this;
-    }
-
-    // Move constructor
-    Team::Team(Team &&other) noexcept : leader(other.leader){
-        team = std::move(other.team);
-        other.team.fill(nullptr);
-    }
-
-    // Move assignment operator
-    Team &Team::operator=(Team &&other) noexcept{
-        return *this;
-    }
-
-
-    void Team::add(Character *player){
-        return;
-    }
-
-    void Team::attack(Team *rival){
-        return;
-    }
-
-    int Team::stillAlive(){
-        return 0;
-    }
-
-    void Team::print(){
-        return;
-    }
-
+    // Destroys a Team object and releases any allocated resources
     Team::~Team(){
         for (size_t i = 0; i < 10; i++){
             if (team[i]) delete team[i];
         }
+    }
+
+    // Assigns the current Team object the same state as another
+    Team &Team::operator=(const Team &other){
+        return *this;
+    }
+
+    // Initializes a Team object by moving another
+    Team::Team(Team &&other) noexcept:
+    leader(other.leader){
+        team = std::move(other.team);
+        other.team.fill(nullptr);
+    }
+
+    // Assigns the current Team object the same state as another by moving
+    Team &Team::operator=(Team &&other) noexcept{
+        return *this;
+    }
+
+    // Adds a new player to the team
+    void Team::add(Character *player){
+        return;
+    }
+
+    // Makes the team attack a rival team
+    void Team::attack(Team *rival){
+        return;
+    }
+
+    // Checks if there are any players in the team that are still alive
+    int Team::stillAlive(){
+        return 0;
+    }
+
+    // Prints information about the team
+    void Team::print(){
+        return;
     }
 }

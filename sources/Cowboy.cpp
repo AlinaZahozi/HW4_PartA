@@ -34,7 +34,8 @@ namespace ariel{
 
     bool Cowboy::hasboolets() {
         if(isAlive() == false) throw("This cowboy is already dead");
-        return (bullets > 0);
+        if(bullets > 0) return true;
+        return false;
     }
 
     void Cowboy::reload() {

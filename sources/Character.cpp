@@ -13,22 +13,26 @@ namespace ariel{
         Point center(0,0);
         this->location = center;
         this->hit_points = 0;
+        this->is_alive = true;
     }
 
     Character::Character(string name, Point location, int hit_points): 
     name(name),
     location(location),
-    hit_points(hit_points){}
+    hit_points(hit_points),
+    is_alive(true){}
 
     Character::Character(const Character& other):
     name(other.name),
     location(other.location),
-    hit_points(other.hit_points){}
+    hit_points(other.hit_points),
+    is_alive(other.is_alive){}
 
     Character::Character(Character &&other) noexcept:
     name(move(other.name)),
     location(move(other.location)),
-    hit_points(move(other.hit_points)){}
+    hit_points(move(other.hit_points)),
+    is_alive(move(other.is_alive)){}
 
     
     Character::~Character() = default;
@@ -37,6 +41,7 @@ namespace ariel{
         name = other.name;
         location = other.location;
         hit_points = other.hit_points;
+        is_alive = other.is_alive;
         return *this;
     }
 
@@ -44,6 +49,7 @@ namespace ariel{
         name = move(other.name);
         location = move(other.location);
         hit_points = move(other.hit_points);
+        is_alive = move(other.is_alive);
         return *this;
     }
 

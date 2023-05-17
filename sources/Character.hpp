@@ -12,6 +12,7 @@ class Character {
         string name;
         Point location;
         int hit_points;
+        bool is_alive;
 
     public:
         // Constructors:

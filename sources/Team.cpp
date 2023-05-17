@@ -43,11 +43,11 @@ namespace ariel{
     }
 
 
-    void Team::add(Character *warrior){
+    void Team::add(Character *player){
         return;
     }
 
-    void Team::attack(Team *enemies){
+    void Team::attack(Team *rival){
         return;
     }
 

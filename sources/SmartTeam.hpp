@@ -3,11 +3,13 @@ using namespace std;
      
 namespace ariel {
 
-    class SmartTeam : public Team {
+    class SmartTeam : public Team { // SmartTeam is a subclass of Team
 
-        public:
-            SmartTeam(Character* leader);
-            void print() override;
-            
+    public:
+        // Constructor:
+        SmartTeam(Character* leader); // Initializes a SmartTeam object with the given leader
+
+        void print() override; // Overrides the print function of the base class to display information about SmartTeam
     };
+
 }
